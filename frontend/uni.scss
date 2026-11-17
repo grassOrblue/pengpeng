@@ -1,0 +1,45 @@
+/* uni-app 全局样式 - 碰一碰好评小程序 */
+/* 黄色主题色系 */
+
+/* 美团风格 - 黄色 */
+$meituan-primary: #FFD700;
+$meituan-bg: #FFF8E1;
+
+/* 抖音风格 - 黑红 */
+$douyin-primary: #FE2C55;
+$douyin-bg: #161823;
+
+/* 大众点评风格 - 橙色 */
+$dianping-primary: #FF7A00;
+$dianping-bg: #FFF3E0;
+
+/* 通用色 */
+$primary-color: #FFD700;
+$primary-dark: #FFC107;
+$text-color: #333333;
+$text-light: #999999;
+$bg-color: #F8F8F8;
+$border-color: #EEEEEE;
+$success-color: #52C41A;
+$danger-color: #FF4D4F;
+$warning-color: #FAAD14;
+
+/* 平台混入 */
+@mixin meituan-style {
+  background: $meituan-bg;
+  .platform-header { background: $meituan-primary; }
+  .platform-btn { background: $meituan-primary; color: #333; }
+}
+
+@mixin douyin-style {
+  background: $douyin-bg;
+  color: #fff;
+  .platform-header { background: $douyin-primary; }
+  .platform-btn { background: $douyin-primary; color: #fff; }
+}
+
+@mixin dianping-style {
+  background: $dianping-bg;
+  .platform-header { background: $dianping-primary; }
+  .platform-btn { background: $dianping-primary; color: #fff; }
+}

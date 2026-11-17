@@ -1,0 +1,104 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "碰一碰好评",
+        "navigationBarBackgroundColor": "#FFD700",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/merchant/register",
+      "style": {
+        "navigationBarTitleText": "商家入驻",
+        "navigationBarBackgroundColor": "#FFD700",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/merchant/login",
+      "style": {
+        "navigationBarTitleText": "商家登录",
+        "navigationBarBackgroundColor": "#FFD700",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/merchant/home",
+      "style": {
+        "navigationBarTitleText": "商家中心",
+        "navigationBarBackgroundColor": "#FFD700",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/product/list",
+      "style": {
+        "navigationBarTitleText": "产品管理",
+        "navigationBarBackgroundColor": "#FFD700",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/product/add",
+      "style": {
+        "navigationBarTitleText": "添加产品",
+        "navigationBarBackgroundColor": "#FFD700",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/qrcode/generate",
+      "style": {
+        "navigationBarTitleText": "碰一碰二维码",
+        "navigationBarBackgroundColor": "#FFD700",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/tap/result",
+      "style": {
+        "navigationBarTitleText": "碰一碰结果",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/platform/redirect",
+      "style": {
+        "navigationBarTitleText": "正在跳转",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "碰一碰好评",
+    "navigationBarBackgroundColor": "#FFD700",
+    "backgroundColor": "#F8F8F8",
+    "app-plus": {
+      "background": "#F8F8F8"
+    }
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FFB800",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/home.png",
+        "selectedIconPath": "static/images/home-active.png"
+      },
+      {
+        "pagePath": "pages/merchant/home",
+        "text": "商家",
+        "iconPath": "static/images/merchant.png",
+        "selectedIconPath": "static/images/merchant-active.png"
+      }
+    ]
+  }
+}

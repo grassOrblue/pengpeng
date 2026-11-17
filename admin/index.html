@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>碰一碰好评 - 后台管理系统</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f5f5}
+#app{display:flex;min-height:100vh}
+.sidebar{width:220px;background:linear-gradient(180deg,#FFD700,#FFC107);color:#333;min-height:100vh;flex-shrink:0;box-shadow:2px 0 8px rgba(0,0,0,.1)}
+.logo{padding:20px;font-size:24px;font-weight:bold;display:flex;align-items:center;gap:8px}
+.logo-icon{font-size:28px}
+.logo-subtitle{padding:0 20px 20px;font-size:13px;color:#666}
+.nav-menu{padding:0 10px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:12px 15px;border-radius:8px;cursor:pointer;color:#555;transition:all .2s;margin-bottom:4px;font-size:14px}
+.nav-item:hover{background:rgba(255,255,255,.3)}
+.nav-item.active{background:#fff;color:#333;font-weight:600;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.nav-icon{font-size:18px}
+.main-content{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.topbar{background:#fff;padding:15px 25px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 1px 4px rgba(0,0,0,.05);z-index:10;flex-shrink:0}
+.topbar h1{font-size:18px;color:#333}
+.topbar-right{display:flex;align-items:center;gap:8px;font-size:13px;color:#999}
+.status-dot{width:8px;height:8px;background:#52c41a;border-radius:50%;display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.content-area{padding:25px;overflow-y:auto;flex:1}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:20px}
+.stat-card{background:#fff;border-radius:12px;padding:20px;display:flex;align-items:center;gap:15px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.stat-icon{font-size:36px}
+.stat-value{font-size:28px;font-weight:bold;color:#333}
+.stat-label{font-size:13px;color:#999;margin-top:2px}
+.panel{background:#fff;border-radius:12px;padding:20px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.panel-title{font-size:16px;font-weight:600;color:#333;margin-bottom:15px}
+.panel-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.panel-header .panel-title{margin-bottom:0}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px 12px;text-align:left;font-size:13px;border-bottom:1px solid #f0f0f0}
+th{color:#999;font-weight:600;background:#fafafa}
+tr:hover{background:#fffbe6}
+.btn{padding:6px 16px;border:none;border-radius:6px;cursor:pointer;font-size:13px;transition:all .2s}
+.btn-primary{background:#FFD700;color:#333}
+.btn-primary:hover{background:#FFC107}
+.btn-success{background:#52c41a;color:#fff}
+.btn-danger{background:#ff4d4f;color:#fff}
+.btn-info{background:#1890ff;color:#fff}
+.btn-default{background:#f0f0f0;color:#666}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn:hover{opacity:.85}
+.status-tag{padding:2px 8px;border-radius:10px;font-size:12px}
+.status-pending{background:#fff7e6;color:#faad14}
+.status-approved{background:#f6ffed;color:#52c41a}
+.status-rejected{background:#fff2f0;color:#ff4d4f}
+.empty-text{text-align:center;color:#ccc;padding:30px}
+.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.4);display:flex;justify-content:center;align-items:center;z-index:100}
+.modal{background:#fff;border-radius:12px;width:500px;max-width:90vw;max-height:80vh;overflow-y:auto;box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.modal-header{padding:15px 20px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
+.modal-header h3{font-size:16px}
+.modal-close{font-size:24px;border:none;background:none;cursor:pointer;color:#999;line-height:1}
+.modal-body{padding:20px}
+.modal-footer{padding:15px 20px;border-top:1px solid #f0f0f0;display:flex;justify-content:flex-end;gap:10px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;margin-bottom:6px;font-size:13px;color:#666;font-weight:500}
+.form-input{width:100%;padding:8px 12px;border:1px solid #ddd;border-radius:6px;font-size:14px}
+.form-input:focus{border-color:#FFD700;outline:none}
+.form-row{display:flex;gap:15px}
+.filter-bar{display:flex;gap:10px;align-items:center}
+.filter-select{padding:6px 12px;border:1px solid #ddd;border-radius:6px;font-size:13px}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.product-card{background:#fafafa;border-radius:8px;overflow:hidden}
+.product-images{display:flex;gap:4px;height:80px;overflow:hidden}
+.product-img{width:33%;height:100%;object-fit:cover}
+.product-info{padding:10px}
+.product-name{font-weight:600;font-size:14px;margin-bottom:4px}
+.product-desc{font-size:12px;color:#999;margin-bottom:4px}
+.product-price{color:#ff4d4f;font-weight:bold}
+.platform-badge{padding:2px 8px;border-radius:4px;font-size:12px;color:#fff}
+.badge-meituan{background:#FFD700;color:#333}
+.badge-douyin{background:#000}
+.badge-dianping{background:#FF7A00}
+.info-list{line-height:2}
+.info-item{font-size:13px;color:#666}
+.info-icon{margin-right:6px}
+.url-cell{max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#1890ff}
+.template-cell{max-width:300px;white-space:pre-wrap}
+.platform-stats{display:flex;gap:20px;flex-wrap:wrap}
+.platform-stat-item{display:flex;align-items:center;gap:8px}
+.platform-count{font-size:18px;font-weight:bold;color:#333}
+.checkbox-label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.loading{text-align:center;padding:40px;color:#999;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"><div class="loading">加载中...</div></div>
+<script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "accessKeyId": "HSTATXV2JU3K45APJ9VY",
+  "secretAccessKey": "2nFMdhKkLi9FWMjfozLPLs4V1QpNbkX67HkSjrr4",
+  "securityToken": "hQpjbi1ub3J0aC00AQAABZBIU1RBVFhWMkpVM0s0NUFQSjlWWSZ-ONF9dU8y7AwUQCRNhL_OafrA75jHxshPsTjNqWQa8lKgSXE1LYecrKmYPoSmDSllYo5o2tqS_eIBnQnpIYNTXEkZw3DevL9qXI4D0tyYEGl4WiyMUGimX_TlruvyuPiDH5YQ7tfeF_SDy5gC1msc_qiWzQGlKVKCE2pO6tArPfJJ2Nw-EATRChg7DoiY2bzOXl0VZOQnPNy1OazMIfSJh-snLh9rA0EynSUdi-lnB_mTCwPpqQPGrJ7kcbC4B90280iLg3Vzgy_KiCSrlC_SaLzc8GFU6WFb5bQdKTQvzRZG-CG3Adel35kChEK-alLAzyh7mX819_AoO2fJYc30g1dp7gGeUkoQb4-qbBCdji72v0xjx_eNvALC1zVen9eu6AXUsfoI6IlJBGaikLOzpwqodmTzrxU_dJJDUYe0_JxNy3SxqrjmI8A-NOfwiQbxJoUm1lgcyT3k6Zhi17YcX7GlbO5d_2RSBzdoxKQ1bfFgpQjLJ9xoXPw_vhpv0U78-itMiBnOTGQJq33aE2P3bvE1XdQWVA0xr5TPUzsmbUBfYBFFdUitBDRiZ1Y3zbXIz9_29pTh5lgVr2I4jqg6QO1BcV6iRmyd6kcwk3YCb1_jj0GDvvp5mVfRCZ0euz0Y7BTI2zNAKucB77BUBXuiaOnuAUTS-_430NtycdxQ-3Q8zRk=",
+  "_refresh": {
+    "accountId": "0cdcacc5c480f4b90ff2c00a820946c0",
+    "agencyUrn": "iam::0cdcacc5c480f4b90ff2c00a820946c0:agency:SELF_VERIFY",
+    "region": "cn-north-4",
+    "hcloudExe": "/usr/local/bin/hcloud"
+  }
+}
